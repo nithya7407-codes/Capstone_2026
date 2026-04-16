@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypertension – HealthPulse</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+
+  <!-- LEFT -->
+  <div class="topbar-left">
+    <div class="logo-circle">VB</div>
+    <div class="brand-text">
+      <h2>HealthPulse</h2>
+      <span>Health Tracking & Awareness</span>
+    </div>
+  </div>
+
+
+  <!-- RIGHT -->
+  <div class="topbar-right">
+    <span class="topbar-date">Thu, 9 Apr, 2026</span>
+
+    <div class="topbar-icons">
+      <span>🔔</span>
+      <span>⚙️</span>
+    </div>
+
+    <div class="topbar-avatar">👤</div>
+  </div>
+
+</div>
+  <div class="topbar-right"><span class="topbar-date" id="todayDate"></span><div class="topbar-avatar">👤</div></div>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-label">Main</div>
+      <a href="dashboard.html"><span class="nav-icon">🏠</span><span>Dashboard</span></a>
+      <a href="bmi.html"><span class="nav-icon">⚖️</span><span>BMI Calculator</span></a>
+      <a href="medicine.html"><span class="nav-icon">💊</span><span>Medicine History</span></a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-label">Health Library</div>
+      <a href="diseases.html" class="active"><span class="nav-icon">🦠</span><span>Diseases</span></a>
+      <a href="exercise.html"><span class="nav-icon">🏃</span><span>Exercise Guide</span></a>
+      <a href="nutrition.html"><span class="nav-icon">🥗</span><span>Nutrition Guide</span></a>
+    </div>
+    <a href="login.html" class="logout-link"><span class="nav-icon">🚪</span><span>Logout</span></a>
+  </nav>
+  <main class="content">
+    <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span>›</span><a href="diseases.html">Diseases</a><span>›</span><span>Hypertension</span></div>
+    <div class="detail-hero">
+      <div class="hero-icon">❤️</div>
+      <div><h1>Hypertension</h1><p>Also called the "silent killer," hypertension is a condition where blood pressure in the arteries is persistently elevated, increasing the risk of heart disease and stroke.</p></div>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-box"><h3>🔍 Symptoms</h3><ul><li>Often no symptoms (silent killer)</li><li>Severe headaches, especially in the morning</li><li>Shortness of breath or chest pain</li><li>Nosebleeds in severe cases</li><li>Dizziness and blurred vision</li><li>Irregular heartbeat or pounding sensation</li></ul></div>
+      <div class="detail-box"><h3>⚡ Causes</h3><ul><li>Primary: No known direct cause (genetic + lifestyle)</li><li>Secondary: Kidney disease, thyroid issues, medication</li><li>Excessive salt and sodium intake</li><li>Chronic stress and poor sleep habits</li><li>Obesity and lack of physical exercise</li></ul></div>
+      <div class="detail-box"><h3>⚠️ Risk Factors</h3><ul><li>Age above 55 (men) or 65 (women)</li><li>Family history of hypertension</li><li>Being overweight or obese</li><li>Smoking and excessive alcohol use</li><li>High-sodium diet and sedentary lifestyle</li><li>Chronic stress or anxiety</li></ul></div>
+      <div class="detail-box"><h3>🛡️ Prevention</h3><ul><li>Reduce daily salt intake to below 5g/day</li><li>Exercise 150 minutes per week (moderate intensity)</li><li>Maintain healthy weight and BMI</li><li>Limit alcohol to moderate amounts</li><li>Quit smoking completely</li><li>Manage stress with yoga, meditation, or breathing</li></ul></div>
+      <div class="detail-box"><h3>💊 Management</h3><ul><li>Take prescribed antihypertensive medications regularly</li><li>Monitor blood pressure at home (target: below 120/80)</li><li>Follow a DASH diet (fruits, vegetables, low-fat dairy)</li><li>Reduce caffeine consumption</li><li>Regular follow-ups with your cardiologist or GP</li></ul></div>
+      <div class="detail-box"><h3>🏥 When to See a Doctor</h3><ul><li>Blood pressure consistently above 140/90 mmHg</li><li>Sudden severe headache or chest pain</li><li>Sudden vision changes or difficulty speaking</li><li>Numbness or weakness in face/arm/leg</li><li>If on medication and not seeing improvement</li></ul></div>
+    </div>
+    <div class="warn-box" style="margin-top:20px;"><strong>⚠️ Important:</strong> Hypertension often has no symptoms. Regular blood pressure checks are the only way to detect it early. Consult a doctor for proper diagnosis.</div>
+    <a href="diseases.html" class="btn-secondary" style="margin-top:20px;display:inline-flex;">← Back to Diseases</a>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div><h4>HealthPulse</h4><p class="footer-brand-desc">Personal health tracking and awareness for a better lifestyle.</p></div>
+    <div><h4>Quick Links</h4><a href="dashboard.html">Dashboard</a><a href="diseases.html">Diseases</a></div>
+    <div><h4>Contact</h4><a href="#">healthpulse@gmail.com</a><a href="#">Chennai, India</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HealthPulse – Capstone Project</div>
+</footer>
+<script>document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',year:'numeric',month:'short',day:'numeric'});</script>
+</body>
+</html>

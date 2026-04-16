@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Training – HealthPulse</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="topbar">
+
+  <!-- LEFT -->
+  <div class="topbar-left">
+    <div class="logo-circle">VB</div>
+    <div class="brand-text">
+      <h2>HealthPulse</h2>
+      <span>Health Tracking & Awareness</span>
+    </div>
+  </div>
+
+
+  <!-- RIGHT -->
+  <div class="topbar-right">
+    <span class="topbar-date">Thu, 9 Apr, 2026</span>
+
+    <div class="topbar-icons">
+      <span>🔔</span>
+      <span>⚙️</span>
+    </div>
+
+    <div class="topbar-avatar">👤</div>
+  </div>
+
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-label">Main</div>
+      <a href="dashboard.html"><span class="nav-icon">🏠</span><span>Dashboard</span></a>
+      <a href="bmi.html"><span class="nav-icon">⚖️</span><span>BMI Calculator</span></a>
+      <a href="medicine.html"><span class="nav-icon">💊</span><span>Medicine History</span></a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-label">Health Library</div>
+      <a href="diseases.html"><span class="nav-icon">🦠</span><span>Diseases</span></a>
+      <a href="exercise.html" class="active"><span class="nav-icon">🏃</span><span>Exercise Guide</span></a>
+      <a href="nutrition.html"><span class="nav-icon">🥗</span><span>Nutrition Guide</span></a>
+    </div>
+    <a href="login.html" class="logout-link"><span class="nav-icon">🚪</span><span>Logout</span></a>
+  </nav>
+  <main class="content">
+    <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span>›</span><a href="exercise.html">Exercise Guide</a><span>›</span><span>Strength Training</span></div>
+    <div class="detail-hero">
+      <div class="hero-icon">💪</div>
+      <div><h1>Strength Training</h1><p>Strength (resistance) training uses weights, bands, or body weight to build muscle mass, improve bone density, and boost metabolism — delivering benefits that go far beyond appearance.</p></div>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-box"><h3>✅ Benefits</h3><ul>
+        <li>Increases muscle mass and metabolic rate (burns more at rest)</li>
+        <li>Strengthens bones and reduces risk of osteoporosis</li>
+        <li>Improves insulin sensitivity and helps manage blood sugar</li>
+        <li>Reduces body fat while preserving lean muscle tissue</li>
+        <li>Enhances posture, balance, and functional movement</li>
+        <li>Boosts confidence, mood, and mental resilience</li>
+        <li>Reduces risk of injury in daily activities and sports</li>
+      </ul></div>
+      <div class="detail-box"><h3>⏱️ Recommended Duration</h3><ul>
+        <li>Beginners: 2 sessions per week, 30–40 minutes each</li>
+        <li>Intermediate: 3–4 sessions per week, 45–60 minutes each</li>
+        <li>Allow 48 hours of rest between working the same muscle group</li>
+        <li>Include compound movements: squats, deadlifts, push-ups, rows</li>
+        <li>Progressive overload: gradually increase weight or reps over time</li>
+      </ul></div>
+      <div class="detail-box"><h3>👥 Who Can Do It</h3><ul>
+        <li>Adults of all ages (seniors benefit greatly from muscle preservation)</li>
+        <li>People managing obesity or metabolic syndrome</li>
+        <li>Those with type 2 diabetes (improves glucose control)</li>
+        <li>Women — strength training does not cause bulk, only tone</li>
+        <li>Anyone wanting to improve daily functional strength and mobility</li>
+      </ul></div>
+      <div class="detail-box"><h3>⚠️ Safety Tips</h3><ul>
+        <li>Learn proper form before adding heavy weights — technique first</li>
+        <li>Always warm up with 5–10 minutes of light cardio before lifting</li>
+        <li>Use a spotter for heavy barbell exercises like bench press or squat</li>
+        <li>Do not hold your breath — exhale on the exertion phase</li>
+        <li>Rest and sleep are when muscles grow — recovery is not optional</li>
+        <li>If you feel sharp joint pain (not muscle burn), stop immediately</li>
+      </ul></div>
+    </div>
+    <div class="tips-row" style="margin-top:20px;">
+      <div class="tip-card"><div class="tip-icon">🏠</div><div class="tip-text"><strong>No Gym Needed</strong>Push-ups, squats, lunges, planks, and dips are effective bodyweight exercises you can do anywhere at home.</div></div>
+      <div class="tip-card"><div class="tip-icon">🥩</div><div class="tip-text"><strong>Fuel Your Muscles</strong>Consume adequate protein (1.2–1.6g/kg body weight) to support muscle repair and growth after training.</div></div>
+      <div class="tip-card"><div class="tip-icon">😴</div><div class="tip-text"><strong>Rest to Grow</strong>Muscles are built during rest, not in the gym. 7–9 hours of sleep accelerates recovery and performance gains.</div></div>
+    </div>
+    <a href="exercise.html" class="btn-secondary" style="margin-top:20px;display:inline-flex;">← Back to Exercise Guide</a>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div><h4>HealthPulse</h4><p class="footer-brand-desc">Personal health tracking and awareness for a better lifestyle.</p></div>
+    <div><h4>Quick Links</h4><a href="exercise.html">Exercise Guide</a><a href="nutrition.html">Nutrition</a></div>
+    <div><h4>Contact</h4><a href="#">healthpulse@gmail.com</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HealthPulse – Capstone Project</div>
+</footer>
+<script>document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',year:'numeric',month:'short',day:'numeric'});</script>
+</body>
+</html>
