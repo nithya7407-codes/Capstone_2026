@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga – HealthPulse</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="topbar">
+
+  <!-- LEFT -->
+  <div class="topbar-left">
+    <div class="logo-circle">VB</div>
+    <div class="brand-text">
+      <h2>HealthPulse</h2>
+      <span>Health Tracking & Awareness</span>
+    </div>
+  </div>
+
+
+  <!-- RIGHT -->
+  <div class="topbar-right">
+    <span class="topbar-date">Thu, 9 Apr, 2026</span>
+
+    <div class="topbar-icons">
+      <span>🔔</span>
+      <span>⚙️</span>
+    </div>
+
+    <div class="topbar-avatar">👤</div>
+  </div>
+
+</div>
+  <div class="topbar-right"><span class="topbar-date" id="todayDate"></span><div class="topbar-avatar">👤</div></div>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-label">Main</div>
+      <a href="dashboard.html"><span class="nav-icon">🏠</span><span>Dashboard</span></a>
+      <a href="bmi.html"><span class="nav-icon">⚖️</span><span>BMI Calculator</span></a>
+      <a href="medicine.html"><span class="nav-icon">💊</span><span>Medicine History</span></a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-label">Health Library</div>
+      <a href="diseases.html"><span class="nav-icon">🦠</span><span>Diseases</span></a>
+      <a href="exercise.html" class="active"><span class="nav-icon">🏃</span><span>Exercise Guide</span></a>
+      <a href="nutrition.html"><span class="nav-icon">🥗</span><span>Nutrition Guide</span></a>
+    </div>
+    <a href="login.html" class="logout-link"><span class="nav-icon">🚪</span><span>Logout</span></a>
+  </nav>
+  <main class="content">
+    <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span>›</span><a href="exercise.html">Exercise Guide</a><span>›</span><span>Yoga</span></div>
+    <div class="detail-hero">
+      <div class="hero-icon">🧘</div>
+      <div><h1>Yoga</h1><p>An ancient mind-body practice combining postures, breathing, and meditation. It builds flexibility, strength, and mental calm — one of the most holistic forms of exercise for all ages.</p></div>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-box"><h3>✅ Benefits</h3><ul>
+        <li>Improves flexibility, balance, and joint mobility</li>
+        <li>Builds core and muscular strength gradually</li>
+        <li>Reduces stress, anxiety, and cortisol levels significantly</li>
+        <li>Improves posture and spinal health</li>
+        <li>Supports heart health and lowers blood pressure</li>
+        <li>Enhances sleep quality and mental focus</li>
+        <li>Helpful in managing diabetes and thyroid conditions</li>
+      </ul></div>
+      <div class="detail-box"><h3>⏱️ Recommended Duration</h3><ul>
+        <li>Beginners: 20–30 minutes, 3 times per week</li>
+        <li>Intermediate: 45–60 minutes, 4–5 times per week</li>
+        <li>Morning practice is ideal for mental clarity and energy</li>
+        <li>Even 10 minutes of pranayama (breathing) daily is beneficial</li>
+        <li>Consistency matters far more than duration</li>
+      </ul></div>
+      <div class="detail-box"><h3>👥 Who Can Do It</h3><ul>
+        <li>Suitable for all ages including seniors and children</li>
+        <li>Excellent for people with back pain or poor posture</li>
+        <li>Safe for managing stress, anxiety, or depression</li>
+        <li>Gentle yoga is appropriate during pregnancy (ask doctor)</li>
+        <li>People recovering from injury with medical clearance</li>
+      </ul></div>
+      <div class="detail-box"><h3>⚠️ Safety Tips</h3><ul>
+        <li>Start with a certified instructor if you are a beginner</li>
+        <li>Never force a pose — always respect your body's limits</li>
+        <li>Avoid hot yoga if you have heart conditions or are pregnant</li>
+        <li>Use a non-slip mat on a flat, stable surface</li>
+        <li>Practise on an empty stomach (2–3 hours after eating)</li>
+        <li>Inform your instructor of any injuries or health conditions</li>
+      </ul></div>
+    </div>
+    <div class="tips-row" style="margin-top:20px;">
+      <div class="tip-card"><div class="tip-icon">🌅</div><div class="tip-text"><strong>Beginner Poses</strong>Start with Tadasana, Balasana, Bhujangasana, and Shavasana — gentle poses that build body awareness.</div></div>
+      <div class="tip-card"><div class="tip-icon">🌬️</div><div class="tip-text"><strong>Try Pranayama</strong>Anulom Vilom (alternate nostril breathing) for 5 min daily reduces stress and improves lung capacity.</div></div>
+      <div class="tip-card"><div class="tip-icon">🧠</div><div class="tip-text"><strong>End Mindfully</strong>Always close with 5 minutes of Shavasana to allow your nervous system to integrate the practice.</div></div>
+    </div>
+    <a href="exercise.html" class="btn-secondary" style="margin-top:20px;display:inline-flex;">← Back to Exercise Guide</a>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div><h4>HealthPulse</h4><p class="footer-brand-desc">Personal health tracking and awareness for a better lifestyle.</p></div>
+    <div><h4>Quick Links</h4><a href="exercise.html">Exercise Guide</a><a href="nutrition.html">Nutrition</a></div>
+    <div><h4>Contact</h4><a href="#">healthpulse@gmail.com</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HealthPulse – Capstone Project</div>
+</footer>
+<script>document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',year:'numeric',month:'short',day:'numeric'});</script>
+</body>
+</html>

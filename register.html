@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register – HealthPulse</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error { color: #ff4d4d; font-size: 0.75rem; margin-top: 4px; min-height: 1rem; }
+        input.error-border { border-color: #ff4d4d !important; background-color: #fffafa; }
+        .auth-logo .topbar-avatar { margin: 0 auto 15px auto; display: flex; }
+    </style>
+</head>
+<body>
+
+<div class="form-page-wrap">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="topbar-avatar"><i class="brand-icon">VB</i></div>
+      <h2>Create Account</h2>
+      <p>Join HealthPulse today</p>
+    </div>
+
+    <form id="registerForm" novalidate>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="John Doe">
+        <div id="nameError" class="error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com">
+        <div id="emailError" class="error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="pswd">Password</label>
+        <input type="password" id="pswd" placeholder="••••••••">
+        <div id="pswdError" class="error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="pswd2">Confirm Password</label>
+        <input type="password" id="pswd2" placeholder="••••••••">
+        <div id="pswd2Error" class="error"></div>
+      </div>
+
+      <button type="submit" class="btn-primary">Create Account →</button>
+    </form>
+
+    <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+  </div>
+</div>
+
+<script>
+    const registerForm = document.getElementById("registerForm");
+    const fields = ["name", "email", "pswd", "pswd2"];
+    
+    fields.forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        const errorDiv = document.getElementById(fieldId + "Error");
+        input.addEventListener("input", () => {
+            input.classList.remove("error-border");
+            errorDiv.textContent = "";
+        });
+    });
+
+    registerForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const pswd = document.getElementById("pswd");
+        const pswd2 = document.getElementById("pswd2");
+
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const pswdError = document.getElementById("pswdError");
+        const pswd2Error = document.getElementById("pswd2Error");
+
+        let isValid = true;
+
+        // NAME VALIDATION WITH NUMBER CHECK
+        const nameValue = name.value.trim();
+        const namePattern = /^[a-zA-Z\s]+$/; 
+
+        if (nameValue.length < 2) {
+            nameError.textContent = "Please enter your full name";
+            name.classList.add("error-border");
+            isValid = false;
+        } else if (!namePattern.test(nameValue)) {
+            nameError.textContent = "Numbers are not allowed in the name field";
+            name.classList.add("error-border");
+            isValid = false;
+        }
+
+        // EMAIL VALIDATION
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email.value.trim())) {
+            emailError.textContent = "Please enter a valid email address";
+            email.classList.add("error-border");
+            isValid = false;
+        }
+
+        // PASSWORD VALIDATION
+        if (pswd.value.length < 6) {
+            pswdError.textContent = "Password must be at least 6 characters";
+            pswd.classList.add("error-border");
+            isValid = false;
+        }
+
+        // CONFIRM PASSWORD VALIDATION
+        if (pswd.value !== pswd2.value) {
+            pswd2Error.textContent = "Passwords do not match";
+            pswd2.classList.add("error-border");
+            isValid = false;
+        }
+
+        if (isValid) {
+            const btn = e.target.querySelector('button');
+            btn.textContent = "Creating Account...";
+            setTimeout(() => {
+                alert("Account created successfully!");
+                window.location.href = "dashboard.html";
+            }, 1000);
+        }
+    });
+</script>
+</body>
+</html>

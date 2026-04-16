@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine History – HealthPulse</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .error-text {
+        color: #ff4d4d;
+        font-size: 0.75rem;
+        margin-top: 4px;
+        min-height: 1rem;
+    }
+    input.error-border, textarea.error-border, select.error-border {
+        border: 1px solid #ff4d4d !important;
+    }
+</style>
+</head>
+<body onload="loadMedData()">
+
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="logo-circle">VB</div>
+    <div class="brand-text">
+      <h2>HealthPulse</h2>
+      <span>Health Tracking & Awareness</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-date" id="todayDate"></span>
+    <div class="topbar-icons"><span>🔔</span><span>⚙️</span></div>
+    <div class="topbar-avatar">👤</div>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Main</div>
+      <a href="dashboard.html"><span class="nav-icon">🏠</span><span>Dashboard</span></a>
+      <a href="bmi.html"><span class="nav-icon">⚖️</span><span>BMI Calculator</span></a>
+      <a href="medicine.html" class="active"><span class="nav-icon">💊</span><span>Medicine History</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Health Library</div>
+      <a href="diseases.html"><span class="nav-icon">🦠</span><span>Diseases</span></a>
+      <a href="exercise.html"><span class="nav-icon">🏃</span><span>Exercise Guide</span></a>
+      <a href="nutrition.html"><span class="nav-icon">🥗</span><span>Nutrition Guide</span></a>
+    </div>
+    <a href="login.html" class="logout-link"><span class="nav-icon">🚪</span><span>Logout</span></a>
+  </nav>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span>›</span><span>Medicine History</span></div>
+    <h1 class="page-title">💊 Medicine History</h1>
+    <p class="page-subtitle">Your data is saved locally on this device for your next visit.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
+      <div class="inner-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="mname" placeholder="e.g. Arjun Kumar">
+          <div id="mnameError" class="error-text"></div>
+        </div>
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" id="mage" placeholder="e.g. 28">
+          <div id="mageError" class="error-text"></div>
+        </div>
+        <div class="form-group">
+          <label>Blood Group</label>
+          <select id="mblood">
+            <option value="">Select Blood Group</option>
+            <option>A+</option><option>A−</option>
+            <option>B+</option><option>B−</option>
+            <option>O+</option><option>O−</option>
+            <option>AB+</option><option>AB−</option>
+          </select>
+          <div id="mbloodError" class="error-text"></div>
+        </div>
+        <div class="form-group">
+          <label>Known Medical Conditions</label>
+          <textarea id="mcond" rows="3" placeholder="e.g. Diabetes..."></textarea>
+          <div id="mcondError" class="error-text"></div>
+        </div>
+        <div class="form-group">
+          <label>Current Medications</label>
+          <textarea id="mmeds" rows="3" placeholder="e.g. Metformin..."></textarea>
+          <div id="mmedsError" class="error-text"></div>
+        </div>
+        
+        <div style="display: flex; gap: 10px;">
+            <button class="btn-primary" onclick="saveMed()">Save Record</button>
+            <button class="btn-secondary" onclick="clearRecord()" style="background: #f4f4f4; color: #333;">Clear All</button>
+        </div>
+
+        <div id="saveMsg" style="display:none;margin-top:12px;padding:10px 14px;background:#E8F5E9;border-radius:8px;color:#2E7D32;font-size:0.85rem;font-weight:600;">✅ Success: Medical record saved to local storage!</div>
+      </div>
+
+      <div>
+        <div class="detail-box" style="margin-bottom:16px;">
+          <h3>💊 Educational Reference</h3>
+          <p style="font-size: 0.85rem; color: #666;">This information helps you keep track of your prescriptions and health status over time.</p>
+        </div>
+        <div class="warn-box">
+          <strong>⚠️ Note:</strong> Data is saved in your browser. Clearing your browser cache may remove these records.
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div><h4>HealthPulse</h4><p class="footer-brand-desc">Personal health tracking and awareness for a better lifestyle.</p></div>
+    <div><h4>Quick Links</h4><a href="dashboard.html">Dashboard</a><a href="bmi.html">BMI Calculator</a></div>
+    <div><h4>Contact</h4><a href="#">healthpulse@gmail.com</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HealthPulse – Capstone Project</div>
+</footer>
+<script>
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',year:'numeric',month:'short',day:'numeric'});
+
+  const fields = ['mname', 'mage', 'mblood', 'mcond', 'mmeds'];
+
+  // 1. SAVE DATA TO LOCAL STORAGE
+  function saveMed() {
+    let isValid = true;
+    let formData = {};
+
+    fields.forEach(id => {
+        const input = document.getElementById(id);
+        const error = document.getElementById(id + 'Error');
+        const val = input.value.trim();
+
+        if (val === "" || (id === 'mage' && (val < 1 || val > 120))) {
+            input.classList.add('error-border');
+            error.textContent = (id === 'mage' && val !== "") ? "Enter valid age" : "Required";
+            isValid = false;
+        } else {
+            input.classList.remove('error-border');
+            error.textContent = "";
+            formData[id] = val; // Add to object
+        }
+    });
+
+    if (isValid) {
+        // Save the object as a string
+        localStorage.setItem('healthPulse_medRecord', JSON.stringify(formData));
+        
+        const msg = document.getElementById('saveMsg');
+        msg.style.display = 'block';
+        setTimeout(() => msg.style.display = 'none', 3000);
+    }
+  }
+
+  // 2. LOAD DATA ON PAGE START
+  function loadMedData() {
+    const savedData = localStorage.getItem('healthPulse_medRecord');
+    if (savedData) {
+        const data = JSON.parse(savedData);
+        fields.forEach(id => {
+            if (data[id]) {
+                document.getElementById(id).value = data[id];
+            }
+        });
+    }
+  }
+
+  // 3. OPTIONAL: CLEAR DATA
+  function clearRecord() {
+      if(confirm("Are you sure you want to delete this record?")) {
+          localStorage.removeItem('healthPulse_medRecord');
+          fields.forEach(id => document.getElementById(id).value = "");
+      }
+  }
+
+  // Live clear errors
+  fields.forEach(id => {
+      document.getElementById(id).addEventListener('input', function() {
+          this.classList.remove('error-border');
+          document.getElementById(id + 'Error').textContent = "";
+      });
+  });
+</script>
+</body>
+</html>
